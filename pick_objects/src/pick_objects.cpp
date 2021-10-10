@@ -3,17 +3,10 @@
 #include <actionlib/client/simple_action_client.h>
 
 
+
 // Define a client for to send goal requests to the move_base server through a SimpleActionClient
 typedef actionlib::SimpleActionClient<move_base_msgs::MoveBaseAction> MoveBaseClient;
 
-
-
-//void doneCb(const actionlib::SimpleClientGoalState& state, const actionlib::ResultConstPtr& result)
-//{
-//  ROS_INFO("DoneCb: Server responded with state [%s]", state.toString().c_str());
-//  ROS_INFO("Got result output = %d", result->output);
-
-//}
 
 int main(int argc, char** argv){
   // Initialize the simple_navigation_goals node
