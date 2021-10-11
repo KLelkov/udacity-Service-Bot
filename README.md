@@ -10,6 +10,8 @@ You can test the SLAM algorithm by running the following script from /src/script
 This script allows you to control the robot my hand using the turtlebot_teleop package in one of the terminals.
 The robot utilizes the Gmapping SLAM package to locate itself and to build a map of the surrounding area. This algorithm relies on the laser scan data from the LIDAR and the odometry data from robot's wheels. It is possible to connect the depth camera sensor as additional distance measuring tool, but it was not considered in this project.
 Below you can see the difference between the map built by SLAM and the real map of the robot's enviroment:
+![map_slam](https://user-images.githubusercontent.com/5613558/136739008-874fcb12-6710-4929-b673-187fdd6249ac.png)
+![map_true](https://user-images.githubusercontent.com/5613558/136739029-b295b3d9-fdc6-4d24-93c5-ccc4e1ca8e89.png)
 ### Localization
 You can test the AMCL localization algorithm by running the following script from /src/scripts folder
 ```
