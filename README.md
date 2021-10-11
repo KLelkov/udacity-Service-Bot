@@ -1,7 +1,7 @@
 # udacity-service-bot
 ## Project 5: Home Service Robot From Udacity Robotics Engeneer Nanodegree
 
-## Projecyt Summary
+## Project Summary
 ### Mapping
 You can test the SLAM algorithm by running the following script from /src/scripts folder
 ```
