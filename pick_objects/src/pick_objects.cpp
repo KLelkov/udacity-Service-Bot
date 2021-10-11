@@ -3,17 +3,10 @@
 #include <actionlib/client/simple_action_client.h>
 
 
+
 // Define a client for to send goal requests to the move_base server through a SimpleActionClient
 typedef actionlib::SimpleActionClient<move_base_msgs::MoveBaseAction> MoveBaseClient;
 
-
-
-//void doneCb(const actionlib::SimpleClientGoalState& state, const actionlib::ResultConstPtr& result)
-//{
-//  ROS_INFO("DoneCb: Server responded with state [%s]", state.toString().c_str());
-//  ROS_INFO("Got result output = %d", result->output);
-
-//}
 
 int main(int argc, char** argv){
   // Initialize the simple_navigation_goals node
@@ -35,8 +28,8 @@ int main(int argc, char** argv){
   goal.target_pose.header.seq = 0;
 
   // Define a position and orientation for the robot to reach
-  goal.target_pose.pose.position.x = -2.0;
-  goal.target_pose.pose.position.y = -9;
+  goal.target_pose.pose.position.x = 9.0;
+  goal.target_pose.pose.position.y = -2.0;
   goal.target_pose.pose.orientation.w = 0.707;
   goal.target_pose.pose.orientation.z = 0.707;
 
@@ -76,8 +69,8 @@ picked = true;
 
 
   // Define a position and orientation for the robot to reach
-  goal2.target_pose.pose.position.x = 5; // 5
-  goal2.target_pose.pose.position.y = -8; // -8
+  goal2.target_pose.pose.position.x = 8.0; // 5
+  goal2.target_pose.pose.position.y = 5.0; // -8
   goal2.target_pose.pose.orientation.w = 1.0;
     //goal.target_pose.pose.orientation.z = 0.707;
   ROS_INFO("Sending 2 goal");

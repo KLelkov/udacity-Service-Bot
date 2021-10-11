@@ -1,17 +1,16 @@
 cmake_minimum_required(VERSION 3.0.2)
-project(pick_objects)
+project(add_markers)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
- add_compile_options(-std=c++11)
+# add_compile_options(-std=c++11)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
-  actionlib
-  move_base_msgs
+  message_generation
   roscpp
-  add_markers
+  visualization_msgs
 )
 
 ## System dependencies are found with CMake's conventions
@@ -55,11 +54,10 @@ find_package(catkin REQUIRED COMPONENTS
 # )
 
 ## Generate services in the 'srv' folder
-# add_service_files(
-#   FILES
-#   Service1.srv
-#   Service2.srv
-# )
+ add_service_files(
+   FILES
+   packageAction.srv
+ )
 
 ## Generate actions in the 'action' folder
 # add_action_files(
@@ -69,10 +67,10 @@ find_package(catkin REQUIRED COMPONENTS
 # )
 
 ## Generate added messages and services with any dependencies listed here
-# generate_messages(
-#   DEPENDENCIES
-#   move_base_msgs
-# )
+ generate_messages(
+   DEPENDENCIES
+   visualization_msgs
+ )
 
 ################################################
 ## Declare ROS dynamic reconfigure parameters ##
@@ -105,8 +103,8 @@ find_package(catkin REQUIRED COMPONENTS
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
 #  INCLUDE_DIRS include
-#  LIBRARIES pick_objects
-#  CATKIN_DEPENDS actionlib move_base_msgs roscpp
+#  LIBRARIES add_markers
+#  CATKIN_DEPENDS roscpp visualization_msgs
 #  DEPENDS system_lib
 )
 
@@ -123,7 +121,7 @@ include_directories(
 
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
-#   src/${PROJECT_NAME}/pick_objects.cpp
+#   src/${PROJECT_NAME}/add_markers.cpp
 # )
 
 ## Add cmake target dependencies of the library
@@ -134,7 +132,7 @@ include_directories(
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-# add_executable(${PROJECT_NAME}_node src/pick_objects_node.cpp)
+# add_executable(${PROJECT_NAME}_node src/add_markers_node.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -150,6 +148,13 @@ include_directories(
 # target_link_libraries(${PROJECT_NAME}_node
 #   ${catkin_LIBRARIES}
 # )
+
+add_executable(add_markers src/add_markers.cpp)
+add_executable(markers_srv src/markers_srv.cpp)
+target_link_libraries(add_markers ${catkin_LIBRARIES})
+target_link_libraries(markers_srv ${catkin_LIBRARIES})
+
+#add_compile_options(-std=c++11)
 
 #############
 ## Install ##
@@ -179,11 +184,6 @@ include_directories(
 #   RUNTIME DESTINATION ${CATKIN_GLOBAL_BIN_DESTINATION}
 # )
 
-add_executable(pick_objects src/pick_objects.cpp)
-target_link_libraries(pick_objects ${catkin_LIBRARIES})
-add_executable(home_service src/home_service.cpp)
-target_link_libraries(home_service ${catkin_LIBRARIES})
-
 ## Mark cpp header files for installation
 # install(DIRECTORY include/${PROJECT_NAME}/
 #   DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
@@ -203,7 +203,7 @@ target_link_libraries(home_service ${catkin_LIBRARIES})
 #############
 
 ## Add gtest based cpp test target and link libraries
-# catkin_add_gtest(${PROJECT_NAME}-test test/test_pick_objects.cpp)
+# catkin_add_gtest(${PROJECT_NAME}-test test/test_add_markers.cpp)
 # if(TARGET ${PROJECT_NAME}-test)
 #   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
 # endif()

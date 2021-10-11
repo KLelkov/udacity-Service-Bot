@@ -33,7 +33,7 @@
 
     <param name="initial_pose_x" value="0.0"/>
     <param name="initial_pose_y" value="0.0"/>
-    <param name="initial_pose_a" value="-1.57"/>
+    <param name="initial_pose_a" value="0.0"/>
   </node> 
 
   <!-- Move Base (needed only for navigation stack)-->
