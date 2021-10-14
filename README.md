@@ -1,6 +1,6 @@
 
 # Project 5: Home Service Robot From Udacity Robotics Engeneer Nanodegree
-
+Home service robot simulation in gazebo.
 ## Project Summary
 ### Mapping
 You can test the SLAM algorithm by running the following script from /src/scripts folder
