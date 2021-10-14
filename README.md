@@ -1,5 +1,5 @@
-# udacity-service-bot
-## Project 5: Home Service Robot From Udacity Robotics Engeneer Nanodegree
+
+# Project 5: Home Service Robot From Udacity Robotics Engeneer Nanodegree
 
 ## Project Summary
 ### Mapping
