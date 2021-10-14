@@ -1,4 +1,3 @@
-
 # Project 5: Home Service Robot From Udacity Robotics Engeneer Nanodegree
 Home service robot simulation in gazebo.
 ## Project Summary
